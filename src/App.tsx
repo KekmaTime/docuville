@@ -1,7 +1,11 @@
 import { ThemeProvider } from "./components/theme-provider"
 import { ModeToggle } from "./components/mode-toggle"
+import { FileUpload } from "./components/FileUpload"
 
 function App() {
+  const handleFileSelect = (file: File) => {
+    console.log("Selected file:", file)
+  }
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="min-h-screen bg-background text-foreground">
@@ -18,6 +22,10 @@ function App() {
           <p className="mb-4 text-muted-foreground">
             Welcome to the Docuville document extraction tool. This application is currently a work in progress.
           </p>
+          <FileUpload 
+            onFileSelect={handleFileSelect}
+            className="mb-8"
+          />
           <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
             <h3 className="mb-2 text-xl font-semibold">Key Information Extracted:</h3>
             <ul className="list-inside list-disc space-y-2">
