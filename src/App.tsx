@@ -1,6 +1,7 @@
 import { ThemeProvider } from "./components/theme-provider"
 import { ModeToggle } from "./components/mode-toggle"
-import { FileUpload } from "./components/FileUpload"
+import { FileUpload } from "./components/file-upload"
+import { Instructions } from "./components/instructions"
 
 function App() {
   const handleFileSelect = (file: File) => {
@@ -24,16 +25,9 @@ function App() {
           </p>
           <FileUpload 
             onFileSelect={handleFileSelect}
-            className="mb-8"
+            className="mb-4"
           />
-          <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
-            <h3 className="mb-2 text-xl font-semibold">Key Information Extracted:</h3>
-            <ul className="list-inside list-disc space-y-2">
-              <li>Name</li>
-              <li>Document Number</li>
-              <li>Expiration Date</li>
-            </ul>
-          </div>
+          <Instructions className="mb-8" />
         </main>
       </div>
     </ThemeProvider>
