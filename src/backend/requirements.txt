@@ -1,1 +1,4 @@
 easyocr
+fastapi
+python-multipart
+uvicorn

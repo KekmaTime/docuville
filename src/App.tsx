@@ -5,13 +5,20 @@ import { Instructions } from "./components/instructions"
 import { ExtractedInformation } from "./components/extracted-information"
 import { useState } from "react"
 
+interface ExtractedData {
+  names?: string[];
+  passport_number?: string;
+  expiry_date?: string;
+}
+
 function App() {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
-  const [extractedData, setExtractedData] = useState(null)
+  const [extractedData, setExtractedData] = useState<ExtractedData | null>(null)
 
-  const handleFileSelect = (file: File) => {
+  const handleFileSelect = async (file: File, data: ExtractedData) => {
     setUploadedFile(file)
-    console.log("Selected file:", file)
+    setExtractedData(data)
+    console.log("Extracted data:", data)
   }
 
   return (

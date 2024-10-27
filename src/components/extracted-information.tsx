@@ -5,10 +5,10 @@ interface ExtractedInformationProps {
   className?: string
   isUploaded?: boolean
   extractedData?: {
-    name?: string
-    documentNumber?: string
-    expirationDate?: string
-  }
+    names?: string[];
+    passport_number?: string;
+    expiry_date?: string;
+  } | null
 }
 
 export function ExtractedInformation({ 
@@ -41,17 +41,17 @@ export function ExtractedInformation({
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-sm">
                 <span className="font-medium">Name:</span>
-                <span>{extractedData.name || "Not found"}</span>
+                <span>{extractedData.names?.[1] || "Not found"}</span>
               </div>
               
               <div className="flex items-center gap-2 text-sm">
                 <span className="font-medium">Document Number:</span>
-                <span>{extractedData.documentNumber || "Not found"}</span>
+                <span>{extractedData.passport_number || "Not found"}</span>
               </div>
               
               <div className="flex items-center gap-2 text-sm">
                 <span className="font-medium">Expiration Date:</span>
-                <span>{extractedData.expirationDate || "Not found"}</span>
+                <span>{extractedData.expiry_date || "Not found"}</span>
               </div>
             </div>
           )}
