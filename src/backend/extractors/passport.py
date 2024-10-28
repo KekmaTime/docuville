@@ -8,11 +8,7 @@ def extract_passport_number(results: List[Dict[str, Any]]) -> str:
     
     for result in results:
         text = result['text'].strip()
-        confidence = result['confidence']
         
-        if confidence < 0.6:
-            continue
-            
         if re.match(new_pattern, text):
             return text
             

@@ -24,10 +24,13 @@ async def process_document(file: UploadFile = File(...)):
             tmp_path = Path(tmp.name)
         results = process_image(tmp_path, reader)
         tmp_path.unlink()
+        
+        names = [name["name"] for name in results["names"]]
+        
         return {
             "success": True,
             "data": {
-                "names": [name["name"] for name in results["names"]],
+                "names": names,
                 "passport_number": results["passport_number"],
                 "expiry_date": results["expiry_date"]
             }
